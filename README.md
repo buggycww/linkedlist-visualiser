@@ -3,7 +3,7 @@
 A doubly linked list built from scratch, with a custom node pool allocator and
 an SFML visualizer showing insertion, deletion, and pool usage live.
 
-![Demo](docs/screenshots/demo.gif)
+![Demo](docs/demo/demo.gif)
 
 ## Benchmarks
 
