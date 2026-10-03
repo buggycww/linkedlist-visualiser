@@ -21,4 +21,6 @@ class NodePool {
 
         int getCapacity() const { return capacity; }
         int getUsed() const { return usedCount; }
+        bool isInUse(int index) const { return storage[index].inUse; }
+        void reset();
 };

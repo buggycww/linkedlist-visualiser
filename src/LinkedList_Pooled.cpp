@@ -79,3 +79,14 @@ void LinkedList_Pooled::print() const {
     }
     std::cout << "Null\n";
 }
+
+void LinkedList_Pooled::clear() {
+    Node* itr = head;
+    while (itr) {
+        Node* next = itr->next;
+        pool.deallocate(itr);
+        itr = next;
+    }
+    head = tail = nullptr;
+    size = 0;
+}

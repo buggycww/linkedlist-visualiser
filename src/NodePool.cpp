@@ -15,15 +15,26 @@ LinkedList_Pooled::Node* NodePool::allocate() {
     LinkedList_Pooled::Node* n = freeList;
     freeList = n->next;
     usedCount++;
+    n->inUse = true;
     return n;
 }
 
 void NodePool::deallocate(LinkedList_Pooled::Node* n) {
     n->next = freeList;
     freeList = n;
+    n->inUse = false;
     usedCount--;
 }
 
 NodePool::~NodePool() {
     delete[] storage;
+}
+
+void NodePool::reset() {
+    for (int i = 0; i < capacity; i++) {
+        storage[i].inUse = false;
+        storage[i].next  = (i + 1 < capacity) ? &storage[i + 1] : nullptr;
+    }
+    freeList  = storage;
+    usedCount = 0;
 }

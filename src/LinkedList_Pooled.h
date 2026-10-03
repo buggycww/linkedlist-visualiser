@@ -8,6 +8,7 @@ class LinkedList_Pooled {
             int value;
             Node* prev;
             Node* next;
+            bool inUse = false;
         };
 
         NodePool& pool;
@@ -25,6 +26,10 @@ class LinkedList_Pooled {
         void print() const;
 
         int getSize() const { return size; }
+        LinkedList_Pooled::Node* getHead() const { return head; }
 
+        void clear();
+        
         friend class NodePool;
+        friend class Visualizer;
 };

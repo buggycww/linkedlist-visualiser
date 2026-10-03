@@ -48,7 +48,7 @@ void printRow(const std::string& phase, const std::string& variant, const Stats&
               << "\n";
 }
 
-int main() {
+void Run() {
     constexpr int N = 100'000;
     constexpr int TRIALS = 10;
 
@@ -115,11 +115,16 @@ int main() {
     std::cout << "Delete speedup: " << (npDel.mean / ppDel.mean) << "x\n";
     std::cout << "Overall (sum):  "
               << ((npIns.mean + npDel.mean) / (ppIns.mean + ppDel.mean)) << "x\n";
-
-    return 0;
 }
 
+// int main() {
+//     Run();
+//     return 0;
+// }
+
 // to build:
+// comment main.cpp's int main()
+// uncomment this file's int main
 // g++ -std=c++17 -O2 bench/benchmark.cpp src/LinkedList.cpp src/LinkedList_Pooled.cpp src/NodePool.cpp -I src -o build/benchmark.exe
 
 // to run:

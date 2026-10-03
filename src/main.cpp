@@ -1,7 +1,9 @@
+#include <SFML/Graphics.hpp>
+#include <iostream>
 #include "LinkedList.h"
 #include "LinkedList_Pooled.h"
 #include "NodePool.h"
-#include <iostream>
+#include "Visualizer.h"
 
 void Test1() {
     LinkedList l;
@@ -44,8 +46,26 @@ void Test2() {
     std::cout << "pool capacity: " << pool.getCapacity() << "\n";              // 10
 }
 
-// int main() {
-//     //Test1();
-//     //Test2();
-//     return 0;
-// }
+int main() {
+    //Test1();
+    //Test2();
+
+    NodePool pool(10);
+    LinkedList_Pooled list(pool);
+
+    Visualizer viz(list, pool, 1200, 700);
+
+    viz.queueInsertFront(10);
+    viz.queueInsertBack(20);
+    viz.queueInsertFront(5);
+    viz.queueInsertBack(30);
+    viz.queueDelete(10);
+    viz.queueInsertBack(15);
+    viz.queueDelete(5);
+    viz.queueDelete(99);
+    viz.queueWait("done", 2.0f);
+
+    viz.run();
+    
+    return 0;
+}

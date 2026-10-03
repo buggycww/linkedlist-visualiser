@@ -1,5 +1,9 @@
 # linkedlist-visualiser
-A doubly linked list with a custom node pool allocator and terminal animation.
+
+A doubly linked list built from scratch, with a custom node pool allocator and
+an SFML visualizer showing insertion, deletion, and pool usage live.
+
+![Demo](docs/screenshots/demo.gif)
 
 ## Benchmarks
 
