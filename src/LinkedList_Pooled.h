@@ -1,6 +1,8 @@
 #pragma once
 
-class LinkedList {
+class NodePool; // forward declare
+
+class LinkedList_Pooled {
     private:
         struct Node {
             int value;
@@ -8,13 +10,14 @@ class LinkedList {
             Node* next;
         };
 
+        NodePool& pool;
         Node* head;
         Node* tail;
         int size;
     
     public:
-        LinkedList();
-        ~LinkedList(); // free all nodes
+        LinkedList_Pooled(NodePool& p);
+        ~LinkedList_Pooled(); // free all nodes
 
         void insertFront(int value);
         void insertBack(int value);
@@ -22,4 +25,6 @@ class LinkedList {
         void print() const;
 
         int getSize() const { return size; }
+
+        friend class NodePool;
 };
