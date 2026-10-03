@@ -10,7 +10,7 @@ an SFML visualizer showing insertion, deletion, and pool usage live.
 To quantify the benefit of the pool allocator, I ran a controlled benchmark
 comparing the standard `new`/`delete` linked list against the pooled variant.
 The benchmark was split into two phases (insertion and deletion) to observe
-allocator's effect independently of traversal cost (O(n^2) for deletion).
+allocator's effect independently of traversal cost (O(n²) for deletion).
 
 ### Methodology
 
