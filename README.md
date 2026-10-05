@@ -98,8 +98,8 @@ Benchmarks are in `benchmark.cpp`. To build and run them you'll need to comment
 out `main` in `main.cpp` first to prevent linker errors.
 
     g++ -std=c++17 -O2 bench/benchmark.cpp src/LinkedList.cpp \
-        src/LinkedList_Pooled.cpp src/NodePool.cpp -I src -o build/benchmark
-    ./build/benchmark
+        src/LinkedList_Pooled.cpp src/NodePool.cpp -I src -o benchmark
+    ./benchmark
 
 Two consecutive runs on the same machine produced consistent speedups of
 9.88× / 2.00× and 10.42× / 1.99×, indicating the measurements are stable.
