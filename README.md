@@ -16,12 +16,12 @@ Build:
     g++ -std=c++17 -g -Wall -Wextra
         src/main.cpp src/LinkedList.cpp src/LinkedList_Pooled.cpp src/NodePool.cpp src/Visualizer.cpp
         -I src -IC:/msys64/ucrt64/include
-        -o build/viz.exe
+        -o viz.exe
         -lsfml-graphics -lsfml-window -lsfml-system
 
 Run:
 
-    ./build/viz.exe
+    ./viz.exe
 
 ## Benchmarks
 
