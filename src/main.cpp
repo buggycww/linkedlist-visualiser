@@ -5,6 +5,7 @@
 #include "NodePool.h"
 #include "Visualizer.h"
 
+#pragma region tests
 void Test1() {
     LinkedList l;
 
@@ -46,10 +47,14 @@ void Test2() {
     std::cout << "pool capacity: " << pool.getCapacity() << "\n";              // 10
 }
 
-int main() {
-    //Test1();
-    //Test2();
+// int main() {
+//     Test1();
+//     Test2();
+//     return 0;
+// }
+#pragma endregion
 
+int main() {
     NodePool pool(10);
     LinkedList_Pooled list(pool);
 
