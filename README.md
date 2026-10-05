@@ -5,6 +5,24 @@ an SFML visualizer showing insertion, deletion, and pool usage live.
 
 ![Demo](docs/demo/demo.gif)
 
+## Build
+
+Requires **MSYS2 UCRT64** with `g++` and the `mingw-w64-ucrt-x86_64-sfml` package.
+
+    pacman -S mingw-w64-ucrt-x86_64-sfml
+
+Build:
+
+    g++ -std=c++17 -g -Wall -Wextra
+        src/main.cpp src/LinkedList.cpp src/LinkedList_Pooled.cpp src/NodePool.cpp src/Visualizer.cpp
+        -I src -IC:/msys64/ucrt64/include
+        -o build/viz.exe
+        -lsfml-graphics -lsfml-window -lsfml-system
+
+Run:
+
+    ./build/viz.exe
+
 ## Benchmarks
 
 To quantify the benefit of the pool allocator, I ran a controlled benchmark
@@ -75,6 +93,9 @@ real-time systems such as games:
    consistent.
 
 ### Reproducing
+
+Benchmarks are in `benchmark.cpp`. To build and run them you'll need to comment 
+out `main` in `main.cpp` first to prevent linker errors.
 
     g++ -std=c++17 -O2 bench/benchmark.cpp src/LinkedList.cpp \
         src/LinkedList_Pooled.cpp src/NodePool.cpp -I src -o build/benchmark
