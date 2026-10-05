@@ -125,7 +125,7 @@ void Run() {
 // to build:
 // comment main.cpp's int main()
 // uncomment this file's int main
-// g++ -std=c++17 -O2 bench/benchmark.cpp src/LinkedList.cpp src/LinkedList_Pooled.cpp src/NodePool.cpp -I src -o build/benchmark.exe
+// g++ -std=c++17 -O2 bench/benchmark.cpp src/LinkedList.cpp src/LinkedList_Pooled.cpp src/NodePool.cpp -I src -o benchmark.exe
 
 // to run:
-// .\build\benchmark.exe
+// .\benchmark.exe
